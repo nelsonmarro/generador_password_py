@@ -1,0 +1,44 @@
+@startuml
+!theme plain
+skinparam roundcorner 0
+skinparam activity {
+  BackgroundColor lightblue
+  BorderColor darkblue
+  ArrowColor black
+}
+
+start
+
+repeat
+  repeat
+    :Ingresar longitud de la contraseña (L); <<input>>
+  repeat while (¿L < 8?) is (Sí) not (No)
+  
+  :Ingresar criterios deseados (mayúsculas, etc.); <<input>>
+  
+  if (¿Se seleccionó al menos un criterio?) then (Sí)
+    :Inicializar contraseña vacía y conjunto total;
+    
+    while (¿Quedan criterios activos por procesar?) is (Sí)
+      :Extraer carácter aleatorio de ese criterio;
+      :Añadir a la contraseña y al conjunto total;
+    endwhile (No)
+    
+    while (¿Longitud actual < L?) is (Sí)
+      :Extraer carácter aleatorio del conjunto total;
+      :Añadir a la contraseña;
+    endwhile (No)
+    
+    :Barajar (shuffle) caracteres de la contraseña;
+    
+    :Mostrar contraseña generada; <<output>>
+  else (No)
+    :Mostrar mensaje de error; <<output>>
+  endif
+  
+  :¿Deseas generar otra contraseña?; <<input>>
+
+repeat while (¿Respuesta es Sí?) is (Sí) not (No)
+
+stop
+@enduml
