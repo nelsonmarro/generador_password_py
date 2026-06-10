@@ -11,27 +11,27 @@ start
 
 repeat
   repeat
-    :Ingresar longitud de la contraseña (L); <<input>>
-  repeat while (¿L < 8?) is (Sí) not (No)
+    :Ingresar **longitud** de la contraseña; <<input>>
+  repeat while (¿**longitud** < 8?) is (Sí) not (No)
   
   :Ingresar criterios deseados (mayúsculas, etc.); <<input>>
   
   if (¿Se seleccionó al menos un criterio?) then (Sí)
-    :Inicializar contraseña vacía y conjunto total;
+    :Inicializar **password_final** (vacía) y **conjunto_total** (vacío);
     
-    while (¿Quedan criterios activos por procesar?) is (Sí)
-      :Extraer carácter aleatorio de ese criterio;
-      :Añadir a la contraseña y al conjunto total;
+    while (¿Quedan **caracteres_activos** por procesar?) is (Sí)
+      :Extraer **caracter_aleatorio** de ese criterio;
+      :Añadirlo a **password_final** y a **conjunto_total**;
     endwhile (No)
     
-    while (¿Longitud actual < L?) is (Sí)
-      :Extraer carácter aleatorio del conjunto total;
-      :Añadir a la contraseña;
+    while (¿Longitud de **password_final** < **longitud**?) is (Sí)
+      :Extraer **caracter_aleatorio** de **conjunto_total**;
+      :Añadirlo a **password_final**;
     endwhile (No)
     
-    :Barajar (shuffle) caracteres de la contraseña;
+    :Barajar (shuffle) **password_final**;
     
-    :Mostrar contraseña generada; <<output>>
+    :Mostrar **password_final**; <<output>>
   else (No)
     :Mostrar mensaje de error; <<output>>
   endif
