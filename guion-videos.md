@@ -15,7 +15,7 @@ Como parte de los entregables del Paso 1 y Paso 2, debes grabar videos explicati
    - "He configurado un repositorio en GitHub para el control de versiones. Aquí podemos ver el primer commit donde subí la estructura inicial y los diagramas."
 3. **Explicación del Diagrama de Flujo (0:45 - 1:30)**
    - _Abre la imagen `diagrama-flujo.png`._
-   - "Este es el diagrama de flujo desarrollado con la sintaxis de PlantUML. Muestra el proceso lógico: iniciamos leyendo la longitud y los criterios. Usamos un condicional para validar que los datos sean correctos. Luego, entramos en dos bucles: el primero garantiza que haya al menos un carácter de cada tipo seleccionado, y el segundo completa la contraseña hasta alcanzar la longitud deseada. Finalmente, barajamos los caracteres."
+   - "Este es el diagrama de flujo desarrollado con la sintaxis de PlantUML. Muestra el proceso lógico: la lectura de datos, los condicionales de validación y los bucles que arman la contraseña. Como detalle técnico, notarán que el diagrama incluye rombos en blanco; en el estándar UML moderno estos se conocen como 'Nodos de Unión' (Merge Nodes) y sirven para marcar de forma limpia el punto exacto donde la flecha de un bucle regresa y se une al flujo principal antes de repetirse."
 4. **Entorno de Desarrollo y Avance del Código (1:30 - 2:00)**
    - _Abre VSCode (o tu IDE) mostrando `generador.py`._
    - "He preparado el entorno utilizando Python y la librería nativa `secrets` (criptográficamente segura). En esta primera fase, he definido la estructura inicial de la aplicación por consola y los métodos principales."
