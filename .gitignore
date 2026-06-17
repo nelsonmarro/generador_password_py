@@ -1,1 +1,5 @@
+# Ignorar guiones y apuntes personales
 guion-videos.md
+
+# Ignorar archivos fuente de diagramas PlantUML
+*.puml
