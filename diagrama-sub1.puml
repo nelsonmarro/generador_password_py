@@ -8,38 +8,29 @@ skinparam activity {
 }
 
 start
-:Sub-proceso 1: Recopilar y Mezclar Caracteres; <<procedure>>
+:Sub-proceso 1: Construir Conjunto de Caracteres; <<procedure>>
 
-:Inicializar **conjunto_total** y **password_final**;
+:Inicializar **conjunto_total** vacío;
 
 if (¿Mayúsculas == 's'?) then (Sí)
-  :Añadir mayúsculas a **conjunto_total**;
-  :Añadir 1 al azar a **password_final**;
+  :Añadir alfabeto en mayúsculas a **conjunto_total**;
 else (No)
 endif
 
 if (¿Minúsculas == 's'?) then (Sí)
-  :Añadir minúsculas a **conjunto_total**;
-  :Añadir 1 al azar a **password_final**;
+  :Añadir alfabeto en minúsculas a **conjunto_total**;
 else (No)
 endif
 
 if (¿Números == 's'?) then (Sí)
-  :Añadir números a **conjunto_total**;
-  :Añadir 1 al azar a **password_final**;
+  :Añadir dígitos a **conjunto_total**;
 else (No)
 endif
 
 if (¿Símbolos == 's'?) then (Sí)
-  :Añadir símbolos a **conjunto_total**;
-  :Añadir 1 al azar a **password_final**;
+  :Añadir símbolos especiales a **conjunto_total**;
 else (No)
 endif
-
-while (¿Tamaño de **password_final** < **longitud**?) is (Sí)
-  :Extraer carácter de **conjunto_total**;
-  :Añadir a **password_final**;
-endwhile (No)
 
 stop
 @enduml

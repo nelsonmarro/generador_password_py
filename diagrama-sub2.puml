@@ -8,13 +8,16 @@ skinparam activity {
 }
 
 start
-:Sub-proceso 2: Barajar y Mostrar; <<procedure>>
+:Sub-proceso 2: Generar y Mostrar Contraseña; <<procedure>>
 
-:Barajar (shuffle) **password_final**;
+:Inicializar **password_final** vacía;
 
-:Unir caracteres en **password_str**;
+while (¿Tamaño de **password_final** < **longitud**?) is (Sí)
+  :Extraer 1 carácter al azar de **conjunto_total**;
+  :Añadir a **password_final**;
+endwhile (No)
 
-:Mostrar **password_str**; <<output>>
+:Mostrar **password_final** en pantalla; <<output>>
 
 stop
 @enduml

@@ -19,8 +19,8 @@ repeat
   if (¿Todas las respuestas son 'n'?) then (Sí)
     :Mostrar error de criterios vacíos; <<output>>
   else (No)
-    :Sub-proceso 1: Recopilar y Mezclar Caracteres; <<procedure>>
-    :Sub-proceso 2: Barajar y Mostrar; <<procedure>>
+    :Sub-proceso 1: Construir Conjunto de Caracteres; <<procedure>>
+    :Sub-proceso 2: Generar y Mostrar Contraseña; <<procedure>>
   endif
   
   :Preguntar si desea salir (s/n); <<input>>
