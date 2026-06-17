@@ -11,34 +11,55 @@ start
 
 repeat
   repeat
-    :Ingresar **longitud** de la contraseña; <<input>>
+    :Ingresar **longitud** (mínimo 8); <<input>>
   repeat while (¿**longitud** < 8?) is (Sí) not (No)
   
-  :Ingresar criterios deseados (mayúsculas, etc.); <<input>>
+  :Ingresar opciones de criterios (s/n); <<input>>
   
-  if (¿Se seleccionó al menos un criterio?) then (Sí)
-    :Inicializar **password_final** (vacía) y **conjunto_total** (vacío);
+  if (¿Todas las respuestas son 'n'?) then (Sí)
+    :Mostrar error de criterios vacíos; <<output>>
+  else (No)
+    :Inicializar **conjunto_total** y **password_final**;
     
-    while (¿Quedan **caracteres_activos** por procesar?) is (Sí)
-      :Extraer **caracter_aleatorio** de ese criterio;
-      :Añadirlo a **password_final** y a **conjunto_total**;
-    endwhile (No)
+    if (¿Mayúsculas == 's'?) then (Sí)
+      :Añadir mayúsculas a **conjunto_total**;
+      :Añadir 1 al azar a **password_final**;
+    else (No)
+    endif
     
-    while (¿Longitud de **password_final** < **longitud**?) is (Sí)
-      :Extraer **caracter_aleatorio** de **conjunto_total**;
-      :Añadirlo a **password_final**;
+    if (¿Minúsculas == 's'?) then (Sí)
+      :Añadir minúsculas a **conjunto_total**;
+      :Añadir 1 al azar a **password_final**;
+    else (No)
+    endif
+    
+    if (¿Números == 's'?) then (Sí)
+      :Añadir números a **conjunto_total**;
+      :Añadir 1 al azar a **password_final**;
+    else (No)
+    endif
+    
+    if (¿Símbolos == 's'?) then (Sí)
+      :Añadir símbolos a **conjunto_total**;
+      :Añadir 1 al azar a **password_final**;
+    else (No)
+    endif
+    
+    while (¿Tamaño de **password_final** < **longitud**?) is (Sí)
+      :Extraer carácter de **conjunto_total**;
+      :Añadir a **password_final**;
     endwhile (No)
     
     :Barajar (shuffle) **password_final**;
     
-    :Mostrar **password_final**; <<output>>
-  else (No)
-    :Mostrar mensaje de error; <<output>>
+    :Unir caracteres en **password_str**;
+    
+    :Mostrar **password_str**; <<output>>
   endif
   
-  :¿Deseas generar otra contraseña?; <<input>>
+  :Preguntar si desea salir (s/n); <<input>>
 
-repeat while (¿Respuesta es Sí?) is (Sí) not (No)
+repeat while (¿Respuesta es 'n' para salir?) is (No) not (Sí)
 
 stop
 @enduml
