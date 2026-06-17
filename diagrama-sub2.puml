@@ -1,0 +1,20 @@
+@startuml
+!theme plain
+skinparam roundcorner 0
+skinparam activity {
+  BackgroundColor lightblue
+  BorderColor darkblue
+  ArrowColor black
+}
+
+start
+:Sub-proceso 2: Barajar y Mostrar; <<procedure>>
+
+:Barajar (shuffle) **password_final**;
+
+:Unir caracteres en **password_str**;
+
+:Mostrar **password_str**; <<output>>
+
+stop
+@enduml

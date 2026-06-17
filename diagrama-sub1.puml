@@ -1,0 +1,45 @@
+@startuml
+!theme plain
+skinparam roundcorner 0
+skinparam activity {
+  BackgroundColor lightblue
+  BorderColor darkblue
+  ArrowColor black
+}
+
+start
+:Sub-proceso 1: Recopilar y Mezclar Caracteres; <<procedure>>
+
+:Inicializar **conjunto_total** y **password_final**;
+
+if (¿Mayúsculas == 's'?) then (Sí)
+  :Añadir mayúsculas a **conjunto_total**;
+  :Añadir 1 al azar a **password_final**;
+else (No)
+endif
+
+if (¿Minúsculas == 's'?) then (Sí)
+  :Añadir minúsculas a **conjunto_total**;
+  :Añadir 1 al azar a **password_final**;
+else (No)
+endif
+
+if (¿Números == 's'?) then (Sí)
+  :Añadir números a **conjunto_total**;
+  :Añadir 1 al azar a **password_final**;
+else (No)
+endif
+
+if (¿Símbolos == 's'?) then (Sí)
+  :Añadir símbolos a **conjunto_total**;
+  :Añadir 1 al azar a **password_final**;
+else (No)
+endif
+
+while (¿Tamaño de **password_final** < **longitud**?) is (Sí)
+  :Extraer carácter de **conjunto_total**;
+  :Añadir a **password_final**;
+endwhile (No)
+
+stop
+@enduml

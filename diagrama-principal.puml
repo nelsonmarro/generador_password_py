@@ -1,0 +1,31 @@
+@startuml
+!theme plain
+skinparam roundcorner 0
+skinparam activity {
+  BackgroundColor lightblue
+  BorderColor darkblue
+  ArrowColor black
+}
+
+start
+
+repeat
+  repeat
+    :Ingresar **longitud** (mínimo 8); <<input>>
+  repeat while (¿**longitud** < 8?) is (Sí) not (No)
+  
+  :Ingresar opciones de criterios (s/n); <<input>>
+  
+  if (¿Todas las respuestas son 'n'?) then (Sí)
+    :Mostrar error de criterios vacíos; <<output>>
+  else (No)
+    :Sub-proceso 1: Recopilar y Mezclar Caracteres; <<procedure>>
+    :Sub-proceso 2: Barajar y Mostrar; <<procedure>>
+  endif
+  
+  :Preguntar si desea salir (s/n); <<input>>
+
+repeat while (¿Respuesta es 'n' para salir?) is (No) not (Sí)
+
+stop
+@enduml
