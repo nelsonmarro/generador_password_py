@@ -22,7 +22,7 @@ Un programa de consola en Python diseñado para generar contraseñas criptográf
 4. Ejecuta el archivo principal:
 
 ```bash
-python generador_basico.py
+python generador_password_v1.py
 ```
 
 1. Sigue las instrucciones en pantalla para definir la longitud y los criterios de tu contraseña.
