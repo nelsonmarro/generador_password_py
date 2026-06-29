@@ -4,7 +4,7 @@
 
 ## Datos del Proyecto
 
-- **Integrantes:** [ESCRIBE TU NOMBRE AQUÍ]
+- **Integrantes:** NELSON MARRO
 - **Fecha:** Junio 2026
 
 ---
@@ -27,7 +27,7 @@ Desarrollar una solución informática automatizada mediante el uso de Python y 
 
 ## Estructura Lógica y Diagramas de Flujo
 
-El algoritmo fue modelado utilizando la notación estándar en PlantUML y se divide en la planificación de los siguientes procesos:
+El algoritmo fue modelado utilizando la notación estándar de diagramas de flujo y se divide en la planificación de los siguientes procesos:
 
 - **`diagrama-principal.png`**: Muestra el bucle principal de ejecución, validación de la longitud y el flujo de los subprocesos.
 - **`diagrama-sub1.png`**: Detalla el "Sub-proceso 1" que construye el conjunto de caracteres según los criterios ingresados.

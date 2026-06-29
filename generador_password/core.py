@@ -3,7 +3,11 @@ from .config import CONJUNTOS_CARACTERES
 
 
 def generar_password(
-    longitud: int, usar_mayusculas: bool, usar_minusculas: bool, usar_numeros: bool, usar_simbolos: bool
+    longitud: int,
+    usar_mayusculas: bool,
+    usar_minusculas: bool,
+    usar_numeros: bool,
+    usar_simbolos: bool,
 ) -> str:
     """Genera una contraseña segura basada en los criterios proporcionados.
 
