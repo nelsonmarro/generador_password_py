@@ -1,64 +1,64 @@
 import random
-from .config import CHAR_SETS
+from .config import CONJUNTOS_CARACTERES
 
 
-def generate_password(
-    length: int, use_upper: bool, use_lower: bool, use_numbers: bool, use_symbols: bool
+def generar_password(
+    longitud: int, usar_mayusculas: bool, usar_minusculas: bool, usar_numeros: bool, usar_simbolos: bool
 ) -> str:
-    """Generates a secure password based on provided criteria.
+    """Genera una contraseña segura basada en los criterios proporcionados.
 
-    Args:
-        length: The desired length of the password.
-        use_upper: Include uppercase letters if True.
-        use_lower: Include lowercase letters if True.
-        use_numbers: Include numbers if True.
-        use_symbols: Include symbols if True.
+    Argumentos:
+        longitud: La longitud deseada de la contraseña.
+        usar_mayusculas: Incluir letras mayúsculas si es True.
+        usar_minusculas: Incluir letras minúsculas si es True.
+        usar_numeros: Incluir números si es True.
+        usar_simbolos: Incluir símbolos si es True.
 
-    Returns:
-        A securely generated string password.
+    Retorna:
+        Una cadena de texto con la contraseña generada de forma segura.
 
-    Raises:
-        ValueError: If length is invalid or no character sets are selected.
+    Lanza:
+        ValueError: Si la longitud es inválida o no se selecciona ningún conjunto de caracteres.
     """
-    if length <= 0:
+    if longitud <= 0:
         raise ValueError("La longitud debe ser mayor a 0.")
 
-    char_pool = ""
-    if use_upper:
-        char_pool += CHAR_SETS["uppercase"]
-    if use_lower:
-        char_pool += CHAR_SETS["lowercase"]
-    if use_numbers:
-        char_pool += CHAR_SETS["numbers"]
-    if use_symbols:
-        char_pool += CHAR_SETS["symbols"]
+    pool_caracteres = ""
+    if usar_mayusculas:
+        pool_caracteres += CONJUNTOS_CARACTERES["mayusculas"]
+    if usar_minusculas:
+        pool_caracteres += CONJUNTOS_CARACTERES["minusculas"]
+    if usar_numeros:
+        pool_caracteres += CONJUNTOS_CARACTERES["numeros"]
+    if usar_simbolos:
+        pool_caracteres += CONJUNTOS_CARACTERES["simbolos"]
 
-    if not char_pool:
+    if not pool_caracteres:
         raise ValueError("Debes seleccionar al menos un tipo de carácter.")
 
-    password_chars = []
+    caracteres_password = []
 
     # Aseguramos al menos un carácter de cada tipo seleccionado
-    if use_upper:
-        password_chars.append(random.choice(CHAR_SETS["uppercase"]))
-    if use_lower:
-        password_chars.append(random.choice(CHAR_SETS["lowercase"]))
-    if use_numbers:
-        password_chars.append(random.choice(CHAR_SETS["numbers"]))
-    if use_symbols:
-        password_chars.append(random.choice(CHAR_SETS["symbols"]))
+    if usar_mayusculas:
+        caracteres_password.append(random.choice(CONJUNTOS_CARACTERES["mayusculas"]))
+    if usar_minusculas:
+        caracteres_password.append(random.choice(CONJUNTOS_CARACTERES["minusculas"]))
+    if usar_numeros:
+        caracteres_password.append(random.choice(CONJUNTOS_CARACTERES["numeros"]))
+    if usar_simbolos:
+        caracteres_password.append(random.choice(CONJUNTOS_CARACTERES["simbolos"]))
 
     # Verificamos si la longitud solicitada es menor a la cantidad de tipos seleccionados
-    if length < len(password_chars):
+    if longitud < len(caracteres_password):
         raise ValueError(
-            f"La longitud mínima para estos criterios es {len(password_chars)}."
+            f"La longitud mínima para estos criterios es {len(caracteres_password)}."
         )
 
     # Rellenamos el resto usando rangos (for ... in range)
-    for _ in range(length - len(password_chars)):
-        password_chars.append(random.choice(char_pool))
+    for _ in range(longitud - len(caracteres_password)):
+        caracteres_password.append(random.choice(pool_caracteres))
 
     # Mezclamos los caracteres para que el orden sea impredecible
-    random.shuffle(password_chars)
+    random.shuffle(caracteres_password)
 
-    return "".join(password_chars)
+    return "".join(caracteres_password)

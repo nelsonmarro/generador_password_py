@@ -1,11 +1,11 @@
 import string
 
-MIN_PASSWORD_LENGTH = 8
-DEFAULT_PASSWORD_LENGTH = 12
+LONGITUD_MINIMA_PASSWORD = 8
+LONGITUD_POR_DEFECTO_PASSWORD = 12
 
-CHAR_SETS = {
-    "uppercase": string.ascii_uppercase,
-    "lowercase": string.ascii_lowercase,
-    "numbers": string.digits,
-    "symbols": string.punctuation,
+CONJUNTOS_CARACTERES = {
+    "mayusculas": string.ascii_uppercase,
+    "minusculas": string.ascii_lowercase,
+    "numeros": string.digits,
+    "simbolos": string.punctuation,
 }

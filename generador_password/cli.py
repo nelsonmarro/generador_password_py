@@ -1,30 +1,30 @@
 import sys
-from .core import generate_password
-from .config import MIN_PASSWORD_LENGTH
+from .core import generar_password
+from .config import LONGITUD_MINIMA_PASSWORD
 
 
-def prompt_yes_no(question: str) -> bool:
-    """Prompts the user with a yes/no question and returns a boolean."""
+def preguntar_si_no(pregunta: str) -> bool:
+    """Pregunta al usuario por una opción de sí/no y retorna un valor booleano."""
     while True:
-        response = input(f"{question} (s/n): ").strip().lower()
-        if response in ["s", "n"]:
-            return response == "s"
+        respuesta = input(f"{pregunta} (s/n): ").strip().lower()
+        if respuesta in ["s", "n"]:
+            return respuesta == "s"
         print("    -> Opción no válida. Usa 's' o 'n'.")
 
 
-def get_password_length() -> int:
-    """Gets and validates the desired password length from the user."""
+def obtener_longitud_password() -> int:
+    """Obtiene y valida la longitud deseada para la contraseña por parte del usuario."""
     while True:
         try:
-            length_str = input(
-                f"Ingresa la longitud deseada (mínimo {MIN_PASSWORD_LENGTH}): "
+            longitud_str = input(
+                f"Ingresa la longitud deseada (mínimo {LONGITUD_MINIMA_PASSWORD}): "
             )
-            length = int(length_str)
-            if length >= MIN_PASSWORD_LENGTH:
-                return length
+            longitud = int(longitud_str)
+            if longitud >= LONGITUD_MINIMA_PASSWORD:
+                return longitud
             else:
                 print(
-                    f"[!] Advertencia: Por favor, ingresa un número igual o mayor a {MIN_PASSWORD_LENGTH}."
+                    f"[!] Advertencia: Por favor, ingresa un número igual o mayor a {LONGITUD_MINIMA_PASSWORD}."
                 )
         except ValueError:
             print(
@@ -32,28 +32,28 @@ def get_password_length() -> int:
             )
 
 
-def run_cli() -> None:
-    """Main CLI execution loop."""
+def ejecutar_cli() -> None:
+    """Bucle principal de ejecución de la interfaz de línea de comandos (CLI)."""
     print("\n" + "=" * 50)
     print("        GENERADOR DE CONTRASEÑAS FINAL")
     print("=" * 50)
 
     while True:
-        length = get_password_length()
+        longitud = obtener_longitud_password()
 
         print("\nSelecciona los criterios de complejidad:")
-        use_upper = prompt_yes_no("- ¿Incluir letras mayúsculas?")
-        use_lower = prompt_yes_no("- ¿Incluir letras minúsculas?")
-        use_numbers = prompt_yes_no("- ¿Incluir números?")
-        use_symbols = prompt_yes_no("- ¿Incluir caracteres especiales?")
+        usar_mayusculas = preguntar_si_no("- ¿Incluir letras mayúsculas?")
+        usar_minusculas = preguntar_si_no("- ¿Incluir letras minúsculas?")
+        usar_numeros = preguntar_si_no("- ¿Incluir números?")
+        usar_simbolos = preguntar_si_no("- ¿Incluir caracteres especiales?")
 
         try:
-            password = generate_password(
-                length=length,
-                use_upper=use_upper,
-                use_lower=use_lower,
-                use_numbers=use_numbers,
-                use_symbols=use_symbols,
+            password = generar_password(
+                longitud=longitud,
+                usar_mayusculas=usar_mayusculas,
+                usar_minusculas=usar_minusculas,
+                usar_numeros=usar_numeros,
+                usar_simbolos=usar_simbolos,
             )
 
             print("\n" + "-" * 50)
@@ -61,9 +61,9 @@ def run_cli() -> None:
             print(password)
             print("-" * 50 + "\n")
 
-        except ValueError as e:
-            print(f"\n[!] Error: {e}")
+        except ValueError as error_validacion:
+            print(f"\n[!] Error: {error_validacion}")
 
-        if not prompt_yes_no("¿Deseas generar otra contraseña nueva?"):
+        if not preguntar_si_no("¿Deseas generar otra contraseña nueva?"):
             print("\n¡Gracias por utilizar el Generador de Contraseñas! Hasta pronto.")
             sys.exit(0)
