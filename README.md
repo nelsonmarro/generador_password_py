@@ -1,27 +1,47 @@
-# Generador de Contraseñas Seguro en Python
+# Proyecto Integrador: El impacto de las nuevas tecnologías en la sociedad: desarrollo y proyección de soluciones informáticas
 
-Un programa de consola en Python diseñado para generar contraseñas criptográficamente seguras. Este proyecto fue construido con un enfoque estructurado (sin funciones complejas), ideal para principiantes en la lógica de programación.
+**Sistema:** Generador de Contraseñas Seguras en Python
 
-## Requisitos
+## Datos del Proyecto
 
-- Python 3.6 o superior.
-- No requiere instalación de librerías externas (solo usa `string` y `secrets` nativas).
+- **Integrantes:** [ESCRIBE TU NOMBRE AQUÍ]
+- **Fecha:** Junio 2026
 
-## Cómo Usarlo
+---
 
-1. Abre tu terminal o consola de comandos.
-2. Clona o descarga este repositorio en tu máquina local.
-3. Navega hasta la carpeta del proyecto.
-4. Ejecuta el archivo principal:
+## Objetivo del Sistema
 
-```bash
-python generador_password_v1.py
-```
+Desarrollar una solución informática automatizada mediante el uso de Python y estructuración lógica que resuelva el problema de la "fatiga de contraseñas". El sistema tiene como objetivo asistir a los usuarios en la creación ágil de contraseñas que cumplan con altos estándares de seguridad (combinación de letras, números y símbolos), contribuyendo así a mitigar vulnerabilidades y proteger la identidad digital en el entorno actual, evidenciando el impacto positivo de la tecnología en la seguridad de la sociedad.
 
-1. Sigue las instrucciones en pantalla para definir la longitud y los criterios de tu contraseña.
+---
+
+## Descripción de Funcionalidades
+
+1. **Generación Criptográficamente Segura:** Selecciona caracteres de forma aleatoria de diccionarios definidos (mayúsculas, minúsculas, números, símbolos).
+2. **Diversidad Garantizada:** Asegura la inclusión de al menos un carácter por cada criterio seleccionado por el usuario.
+3. **Longitud Personalizable y Segura:** Permite al usuario definir el tamaño de su contraseña exigiendo una longitud mínima (8 caracteres) para proteger frente a ataques de fuerza bruta.
+4. **Validación de Entradas:** Manejo de excepciones (`try-except`) que impide el colapso del programa si el usuario ingresa letras cuando se espera un número, o selecciona opciones inválidas.
+5. **Arquitectura Modular:** Dividido en múltiples módulos (`core.py`, `cli.py`, `config.py`) para una mejor escalabilidad, separación de intereses (lógica vs interfaz) y buenas prácticas de desarrollo.
+
+---
 
 ## Estructura Lógica y Diagramas de Flujo
 
-1. **`diagrama-principal.png`**: Muestra el bucle principal de ejecución y la validación de la longitud. Llama internamente a los dos sub-procesos siguientes.
-2. **`diagrama-sub1.png`**: Detalla el "Sub-proceso 1", donde se validan los 4 criterios lógicos (mayúsculas, minúsculas, números y símbolos) y se rellena la contraseña garantizando la diversidad.
-3. **`diagrama-sub2.png`**: Detalla el "Sub-proceso 2", que se encarga de barajar aleatoriamente los caracteres generados y mostrarlos en pantalla.
+El algoritmo fue modelado utilizando la notación estándar en PlantUML y se divide en la planificación de los siguientes procesos:
+
+- **`diagrama-principal.png`**: Muestra el bucle principal de ejecución, validación de la longitud y el flujo de los subprocesos.
+- **`diagrama-sub1.png`**: Detalla el "Sub-proceso 1" que construye el conjunto de caracteres según los criterios ingresados.
+- **`diagrama-sub2.png`**: Detalla el "Sub-proceso 2" que se encarga del relleno aleatorio y la mezcla (shuffle) para generar el resultado final.
+
+---
+
+## Cómo Ejecutar el Proyecto
+
+1. Abre tu terminal o consola de comandos.
+2. Clona o descarga este repositorio.
+3. Navega hasta la carpeta del proyecto.
+4. Ejecuta el módulo principal mediante:
+
+```bash
+python -m generador_password
+```
