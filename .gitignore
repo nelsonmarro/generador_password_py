@@ -3,3 +3,4 @@ guion-videos.md
 
 # Ignorar archivos fuente de diagramas PlantUML
 *.puml
+__pycache__/
